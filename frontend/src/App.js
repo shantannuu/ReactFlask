@@ -9,7 +9,7 @@ const App = () => {
     
     const handleDelete = async (id) => {
       try {
-        await axios.delete(`/api/delete-data/${id}`);
+        await axios.delete(`http://localhost:8080/api/delete-data/${id}`);
         getData()
       } catch (error) {
         alert('Error deleting data');
@@ -21,7 +21,7 @@ const App = () => {
       e.preventDefault();
       if(edit === true){
         try {
-          await axios.put(`/api/update-data/${ id }`, { name });
+          await axios.put(`http://localhost:8080/api/update-data/${ id }`, { name });
           setName('');
           setId(0);
           setEdit(false)
@@ -32,7 +32,7 @@ const App = () => {
         }
       }else{
         try {
-          await axios.post('/api/post-data', { name });
+          await axios.post('http://localhost:8080/api/post-data', { name });
           setName('');
           getData();
         } catch (error) {
@@ -49,7 +49,7 @@ const App = () => {
 
     const getData = async () =>{
       try {
-        const response = await axios.get('/api/get-data');
+        const response = await axios.get('http://localhost:8080/api/get-data');
         setData(response.data);
       } catch (error) {
         alert('Error getting data');
