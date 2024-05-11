@@ -14,14 +14,13 @@ __all__ = ['get_db_connection']
 
 def get_db_connection():
 
-    # return 
-        # psycopg2.connect(
-        #     dbname=DB_NAME,
-        #     user=DB_USER,
-        #     password=DB_PASSWORD,
-        #     host=DB_HOST,
-        #     port=DB_PORT
-        # )
+    return psycopg2.connect(
+            dbname=DB_NAME,
+            user=DB_USER,
+            password=DB_PASSWORD,
+            host=DB_HOST,
+            port=DB_PORT
+        )
 
-    DB_URL = os.environ.get('DATABASE_URL')
-    return psycopg2.connect(DB_URL)
+    # DB_URL = os.environ.get('DATABASE_URL')
+    # return psycopg2.connect(DB_URL)
